@@ -167,14 +167,14 @@ cycles, wrapping when necessary:
     >>> metonic.in_cycle("0100", "00001")
     True
 	
-This true because "0100" matches as segment in "00001" treated as a ring:
+This true because "0100" matches a segment in "00001" treated as a ring:
 
     0000100001
 	   0100
 	   
 If you test against an iterable, the test will be repeated for each
 member of the iterable. The result will be a tuple of cycles for which
-there is a match, an emtpy tuple if there are no matches:
+there is a match, an empty tuple if there are no matches:
 
     >>> metonic.in_cycle("0010101", metonic.cycle_set())
     ('0010010010010010101',)
@@ -183,10 +183,10 @@ there is a match, an emtpy tuple if there are no matches:
 	
 ### All Combinations
 
-`cycle_set()` begins will all possible combinations of ordinary and
+`cycle_set()` begins with all possible combinations of ordinary and
 intercalary years before reducing them to unique cycles. The
 non-unique combinations can be gotten from `combinations()`. This
-takes the same paramters and defaults as `cycle_set` so, with no
+takes the same parameters and defaults as `cycle_set` so, with no
 arguments, it returns a tuple of all combinations according to the
 standard Metonic criteria:
 
@@ -196,10 +196,10 @@ standard Metonic criteria:
 The 57 combinations are 19 “rotations” of 3 unique cycles (19 × 3 =
 57). The difference between `combinations()` and `cycle_set()` is that
 `combinations()` returns all the rotations while `cycle_set()` only
-returns one example of each uniaue cycle (specifically the one the
+returns one example of each unique cycle (specifically the one that
 comes first in an alphabetical sort).
 
-`cycle_set()` can also take an iterable of combinations this:
+`cycle_set()` can also take an iterable of combinations. This:
 
     >>> c = metonic.combinations()
 	>>> metonic.cycle_set(c)
